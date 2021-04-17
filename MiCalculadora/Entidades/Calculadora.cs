@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    static class Calculadora
+    public static class Calculadora
     {
         /// <summary>
         /// Valida que sea un operador valido, caso contrario asigna "+" por defecto
