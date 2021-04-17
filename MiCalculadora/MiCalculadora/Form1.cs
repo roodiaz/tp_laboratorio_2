@@ -24,7 +24,7 @@ namespace MiCalculadora
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Desea cerrar calculadora?","Salir", 
+            if (MessageBox.Show("Desea cerrar calculadora?", "Salir",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 this.Close();
@@ -36,17 +36,17 @@ namespace MiCalculadora
             string numero = lblResultado.Text;
 
             Numero num = new Numero();
-            lblResultado.Text= num.DecimalBinario(numero);
-            
+            lblResultado.Text = num.DecimalBinario(numero);
+
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             string numero = lblResultado.Text;
-            
+
             Numero num = new Numero();
             lblResultado.Text = num.BinarioDecimal(numero);
-     
+
         }
 
         void Limpiar()
@@ -72,13 +72,13 @@ namespace MiCalculadora
             Numero n2 = new Numero(num2);
 
             return resultado = Calculadora.Operar(n1, n2, operador);
-            
+
         }
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
             string operador = Convert.ToString(cmbOperator.SelectedItem);
- 
+
             lblResultado.Text = Convert.ToString(Operar(txtNumero1.Text, txtNumero2.Text, operador));
 
             btnConvertirABinario.Enabled = true;
