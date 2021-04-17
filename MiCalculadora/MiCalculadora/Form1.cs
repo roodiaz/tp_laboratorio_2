@@ -13,6 +13,9 @@ namespace MiCalculadora
 {
     public partial class FormCalculadora : Form
     {
+        /// <summary>
+        /// Inicializa los componentes
+        /// </summary>
         public FormCalculadora()
         {
             InitializeComponent();
@@ -22,6 +25,11 @@ namespace MiCalculadora
             btnLimpiar.Enabled = false;
         }
 
+        /// <summary>
+        /// Cierra el forms
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Desea cerrar calculadora?", "Salir",
@@ -31,6 +39,12 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Convierte de decimal a binario
+        /// Se desactiva el boton para convertir a binario y se activa el de convertir a decimal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             string numero = lblResultado.Text;
@@ -40,6 +54,12 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Convierte binario a decimal
+        /// Habilita el boton de convertir a binario y se desactiva el boton de convertir a decimal.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             string numero = lblResultado.Text;
@@ -49,6 +69,10 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Borra los datos de los TextBox, ComboBox y Label de la pantalla.
+        /// Deshabilita los botones de convertir a binario y a decimal.
+        /// </summary>
         void Limpiar()
         {
             txtNumero1.Clear();
@@ -60,11 +84,23 @@ namespace MiCalculadora
             btnLimpiar.Enabled = false;
         }
 
+        /// <summary>
+        /// Limpia los campos y setea todo de cero.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
 
+        /// <summary>
+        /// Crea dos intancias de la clase Numero y usar el método Operar.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <param name="operador"></param>
+        /// <returns>El resultado del método Operar.</returns>
         private static double Operar(string num1, string num2, string operador)
         {
             double resultado;
@@ -75,6 +111,12 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Instancia la calculadora y ambos operadores, consigue los valores de las textbox y valida lo necesario para poder operar.
+        /// habilita el boton de convertir a binario y calcula la operacion y la escribe en el lbl de resultado.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             string operador = Convert.ToString(cmbOperator.SelectedItem);
