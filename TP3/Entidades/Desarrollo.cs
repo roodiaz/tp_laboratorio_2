@@ -38,10 +38,10 @@ namespace Entidades
             get { return this.desarrolladora; }
             set
             {
-                //if (String.IsNullOrEmpty(value) || value.Length < 2)
-                //    this.desarrolladora = "Sin especificar";
-                //else
-                this.desarrolladora = value;
+                if (String.IsNullOrEmpty(value) || value.Length < 2)
+                    this.desarrolladora = "Sin especificar";
+                else
+                    this.desarrolladora = value;
             }
         }
 
@@ -119,14 +119,31 @@ namespace Entidades
             return sb.ToString();
         }
 
-        public static bool operator +(Desarrollo<T> d, VideoJuego v)
+        public static bool operator ==(Desarrollo<T> d, VideoJuego v)
         {
             if (!(d is null) && !(v is null))
             {
+                foreach (T item in d.listaJuegos)
+                {
+                    if (item == v)
+                        return true;
+                }
+            }
 
+            return false;
+        }
+
+        public static bool operator !=(Desarrollo<T> d, VideoJuego v)
+        {
+            return !(d == v);
+        }
+
+        public static bool operator +(Desarrollo<T> d, VideoJuego v)
+        {
+            if (d != v)
+            {
                 d.listaJuegos.Add((T)v);
                 return true;
-
             }
 
             return false;
