@@ -24,9 +24,8 @@ namespace Entidades
 
     public enum Plataforma
     {
+        PlayStation3,
         PlayStation4,
-        PlayStation5,
-        XboxOne,
-        XboxSeries
+        PlayStation5
     }
 }

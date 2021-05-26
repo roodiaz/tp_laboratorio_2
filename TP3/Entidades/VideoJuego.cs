@@ -10,7 +10,6 @@ namespace Entidades
     public abstract class VideoJuego
     {
         private string nombre;
-        private string desarrolladora;
         private string codigoJuego;
         private Region region;
         private EstadoJuego estadoJuego;
@@ -30,35 +29,33 @@ namespace Entidades
         /// <summary>
         /// Constructor juego
         /// </summary>
-        /// <param name = "desarrolladora" > nombre de desarrolladora</param>
         /// <param name = "codigoJuego" > codigo unico de juego</param>
         /// <param name="plataforma">plataforma para desarrollo</param>
-        public VideoJuego(string desarrolladora, string codigoJuego, Plataforma plataforma)
+        public VideoJuego(string codigoJuego, Plataforma plataforma, Region region)
             : this()
         {
-            this.nombre = Nombre;
-            this.desarrolladora = Desarrolladora;
-            this.codigoJuego = CodigoJuego;
-            this.region = Region;
-            this.plataforma = Plataforma;
+            this.Nombre = nombre;
+            this.CodigoJuego = codigoJuego;
+            this.region = region;
+            this.plataforma = plataforma;
+
         }
 
         /// <summary>
         /// Constructor del juego
         /// </summary>
         /// <param name = "nombre" > nombre del juego</param>
-        /// <param name = "desarrolladora" > nombre de desarrolladora</param>
         /// <param name = "codigoJuego" > codigo unico de juego</param>
         /// <param name = "region" > region del juego</param>
         /// <param name = "plataforma" > plataforma para desarrollo</param>
-        public VideoJuego(string nombre, string desarrolladora, string codigoJuego, Region region, Plataforma plataforma, EstadoJuego estadoJuego)
+        /// <param name="estadoJuego">fase de desarrollo del juego</param>
+        public VideoJuego(string nombre, string codigoJuego, Region region, Plataforma plataforma, EstadoJuego estadoJuego)
         {
-            this.nombre = Nombre;
-            this.desarrolladora = Desarrolladora;
-            this.codigoJuego = CodigoJuego;
-            this.region = Region;
-            this.plataforma = Plataforma;
-            this.estadoJuego = EstadoJuego;
+            this.Nombre = nombre;
+            this.CodigoJuego = codigoJuego;
+            this.region = region;
+            this.plataforma = plataforma;
+            this.estadoJuego = estadoJuego;
         }
 
         /* ########################## PROPIEDADES ##############################*/
@@ -71,27 +68,13 @@ namespace Entidades
             get { return this.nombre; }
             set
             {
-                if (String.IsNullOrWhiteSpace(value) || value.Length < 2)
+                if (String.IsNullOrEmpty(value) || value.Length < 2)
                     this.nombre = "Sin especificar";
                 else
                     this.nombre = value;
             }
         }
-
-        /// <summary>
-        /// Propiedad de lectura y escritura para atributo "desarrolladora" con validacion 
-        /// </summary>
-        public string Desarrolladora
-        {
-            get { return this.desarrolladora; }
-            set
-            {
-                if (String.IsNullOrWhiteSpace(value) || value.Length < 2)
-                    this.desarrolladora = "Sin especificar";
-                else
-                    this.desarrolladora = value;
-            }
-        }
+      
 
         /// <summary>
         /// Propiedad de lectura y escritura para atributo "codigoJuego" con validacion 
@@ -148,7 +131,7 @@ namespace Entidades
         /// <summary>
         /// Propiedad abstracta de lectura y escritura para ser implementada en derivadas
         /// </summary>
-        protected abstract double Costo { get; set; }
+        public abstract double Costo { get; set; }
 
         /* ########################## METODOS ##########################*/
 
@@ -156,17 +139,16 @@ namespace Entidades
         /// Metodo que devuelve informacion del videojuego
         /// </summary>
         /// <returns></returns>
-        public string InfoJuego()
+        public virtual string InfoJuego()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"NOMBRE JUEGO: {this.Nombre}");
-            sb.AppendLine($"DESARROLADORA: {this.Desarrolladora}");
             sb.AppendLine($"PLATAFORMA DESARROLLO: {this.Plataforma}");
-            sb.AppendLine($"TIPO DE JUEGO{this.TipoJuego}");
-            sb.AppendLine($"REGION JUEGO{this.Region}");
+            sb.AppendLine($"TIPO DE JUEGO: {this.TipoJuego}");
+            sb.AppendLine($"REGION JUEGO: {this.Region}");
             sb.AppendLine($"CODIGO JUEGO: {this.CodigoJuego}");
-            sb.AppendLine($"ESTADO DEL JUEGO: {this.EstadoJuego}\n");
+            sb.AppendLine($"ESTADO DEL JUEGO: {this.EstadoJuego}");
 
             return sb.ToString();
         }
@@ -183,7 +165,7 @@ namespace Entidades
         /* ########################## SOBRECARGAS ##########################*/
 
         /// <summary>
-        /// Si dos juegos comparten mismo "codigoJuego" se los considera iguales y devuelve true
+        /// Si dos juegos comparten mismo codigo y plataforma de desarrollo se los considera iguales y devuelve true
         /// </summary>
         /// <param name="j1"></param>
         /// <param name="j2"></param>
@@ -191,7 +173,7 @@ namespace Entidades
         public static bool operator ==(VideoJuego j1, VideoJuego j2)
         {
             if (!(j1 is null) && !(j2 is null))
-                if (j1.codigoJuego == j2.codigoJuego)
+                if (j1.codigoJuego == j2.codigoJuego && j1.plataforma == j2.plataforma)
                     return true;
 
             return false;
@@ -206,9 +188,7 @@ namespace Entidades
         public static bool operator !=(VideoJuego j1, VideoJuego j2)
         {
             return !(j1 == j2);
-        }
-
-        
+        }       
 
     }
 }
