@@ -12,19 +12,10 @@ namespace Entidades
         private string nombre;
         private string codigoJuego;
         private Region region;
-        private EstadoJuego estadoJuego;
         private Plataforma plataforma;
 
 
         /* ####################### CONSTRUCTORES ###########################*/
-
-        /// <summary>
-        /// Constructor por defecto que asigna primer fase al juego
-        /// </summary>
-        private VideoJuego()
-        {
-            this.estadoJuego = EstadoJuego.faseDiseño;
-        }
 
         /// <summary>
         /// Constructor juego
@@ -32,13 +23,10 @@ namespace Entidades
         /// <param name = "codigoJuego" > codigo unico de juego</param>
         /// <param name="plataforma">plataforma para desarrollo</param>
         public VideoJuego(string codigoJuego, Plataforma plataforma, Region region)
-            : this()
         {
-            this.Nombre = nombre;
             this.CodigoJuego = codigoJuego;
             this.region = region;
             this.plataforma = plataforma;
-
         }
 
         /// <summary>
@@ -49,13 +37,10 @@ namespace Entidades
         /// <param name = "region" > region del juego</param>
         /// <param name = "plataforma" > plataforma para desarrollo</param>
         /// <param name="estadoJuego">fase de desarrollo del juego</param>
-        public VideoJuego(string nombre, string codigoJuego, Region region, Plataforma plataforma, EstadoJuego estadoJuego)
+        public VideoJuego(string nombre, string codigoJuego, Region region, Plataforma plataforma)
+            : this(codigoJuego, plataforma, region)
         {
             this.Nombre = nombre;
-            this.CodigoJuego = codigoJuego;
-            this.region = region;
-            this.plataforma = plataforma;
-            this.estadoJuego = estadoJuego;
         }
 
         /* ########################## PROPIEDADES ##############################*/
@@ -74,7 +59,6 @@ namespace Entidades
                     this.nombre = value;
             }
         }
-      
 
         /// <summary>
         /// Propiedad de lectura y escritura para atributo "codigoJuego" con validacion 
@@ -102,14 +86,6 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Propiedad solo lectura para atributo "estadoJuego"
-        /// </summary>
-        public EstadoJuego EstadoJuego
-        {
-            get { return this.estadoJuego; }
-        }
-
-        /// <summary>
         /// Propiedad solo lectura para atributo "plataforma"
         /// </summary>
         public Plataforma Plataforma
@@ -131,7 +107,7 @@ namespace Entidades
         /// <summary>
         /// Propiedad abstracta de lectura y escritura para ser implementada en derivadas
         /// </summary>
-        public abstract double Costo { get; set; }
+
 
         /* ########################## METODOS ##########################*/
 
@@ -148,19 +124,12 @@ namespace Entidades
             sb.AppendLine($"TIPO DE JUEGO: {this.TipoJuego}");
             sb.AppendLine($"REGION JUEGO: {this.Region}");
             sb.AppendLine($"CODIGO JUEGO: {this.CodigoJuego}");
-            sb.AppendLine($"ESTADO DEL JUEGO: {this.EstadoJuego}");
 
             return sb.ToString();
         }
 
-        /// <summary>
-        /// Sobrecarga metodo ToString() para que devuelva solo estado del videojuego
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return this.EstadoJuego.ToString();
-        }
+       
+
 
         /* ########################## SOBRECARGAS ##########################*/
 
@@ -188,7 +157,7 @@ namespace Entidades
         public static bool operator !=(VideoJuego j1, VideoJuego j2)
         {
             return !(j1 == j2);
-        }       
+        }
 
     }
 }

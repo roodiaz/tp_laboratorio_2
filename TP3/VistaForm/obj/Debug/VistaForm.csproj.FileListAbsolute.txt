@@ -7,3 +7,8 @@ C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.cspr
 C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.csproj.CoreCompileInputs.cache
 C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.exe
 C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.pdb
+C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.FrmPrincipal.resources
+C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\bin\Debug\Entidades.dll
+C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\bin\Debug\Entidades.pdb
+C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.csproj.CopyComplete
+C:\Users\Rocio\Documents\tp_laboratorio_2\TP3\VistaForm\obj\Debug\VistaForm.FrmGenerarFisico.resources

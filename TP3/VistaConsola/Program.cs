@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,24 +12,26 @@ namespace VistaConsola
     {
         static void Main(string[] args)
         {
-            Desarrollo<VideoJuego> capcom = new Desarrollo<VideoJuego>("Capcom");
-            Desarrollo<VideoJuego> rockstar = new Desarrollo<VideoJuego>("Rockstar Games");
+           //Produccion<VideoJuego> list = new Produccion<VideoJuego>();
 
-            Digital gtaDigital = new Digital("GTA 5","3564879",Region.Region_1_USA,Plataforma.PlayStation4,EstadoJuego.faseTesteo,0,45.5);
-            Digital RE8 = new Digital("RESIDENT EVIL 8", "3098078", Region.Region_2_Europa, Plataforma.PlayStation5, EstadoJuego.faseDistribucion, 89.99, 63.8);
 
-            Fisico spider = new Fisico("Spider man", "3657456", Region.Region_3_Asia, Plataforma.PlayStation4, EstadoJuego.faseDistribucion, 49.99);
-            Fisico fifa = new Fisico("fifa 2022", "3654789", Region.Region_2_Europa, Plataforma.PlayStation3, EstadoJuego.faseDesarrollo, 0);
+           // Fisico j = new Fisico("Spider Man","3564324",Region.Region_2_Europa,Plataforma.PlayStation5,45.99,Fisico.EstadoJuegoFisico.sinAsignar);
 
-            bool ok;
+           // bool ok = list + j;
 
-            ok = capcom + RE8;
-            ok = capcom + spider;
-            ok = rockstar + gtaDigital;
-            ok = rockstar + fifa;
 
-            Console.WriteLine(capcom.InfoJuegos());
- 
+           // j.Producir(Fisico.EstadoJuegoFisico.fabricacionCaja, 40);
+           // j.Producir(Fisico.EstadoJuegoFisico.impresionCaratula, 40);
+           //j.Producir(Fisico.EstadoJuegoFisico.grabadoDisco, 40);
+           //   j.Producir(Fisico.EstadoJuegoFisico.empaquetado, 40);
+           // string aux = j.Producir(Fisico.EstadoJuegoFisico.distribucion, 40);
+
+           
+
+
+           // Console.WriteLine(aux+list.InfoJuegos());
+           // string aux2 = j.Distribuir(32);
+           // Console.WriteLine(aux2 + list.InfoJuegos());
             Console.ReadKey();
         }
     }

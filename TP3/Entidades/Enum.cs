@@ -6,14 +6,6 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public enum EstadoJuego
-    {
-        faseDiseño,
-        faseDesarrollo,
-        faseTesteo,
-        faseDistribucion
-    }
-
     public enum Region
     {
         Region_1_USA,
