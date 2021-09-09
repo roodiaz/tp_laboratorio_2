@@ -1,5 +1,0 @@
-C:\Users\Rocio\Documents\tp_laboratorio_2\MiCalculadora\Entidades\bin\Debug\Entidades.dll
-C:\Users\Rocio\Documents\tp_laboratorio_2\MiCalculadora\Entidades\bin\Debug\Entidades.pdb
-C:\Users\Rocio\Documents\tp_laboratorio_2\MiCalculadora\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
-C:\Users\Rocio\Documents\tp_laboratorio_2\MiCalculadora\Entidades\obj\Debug\Entidades.dll
-C:\Users\Rocio\Documents\tp_laboratorio_2\MiCalculadora\Entidades\obj\Debug\Entidades.pdb
