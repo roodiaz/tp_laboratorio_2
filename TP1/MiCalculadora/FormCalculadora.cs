@@ -26,9 +26,7 @@ namespace MiCalculadora
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(MessageBox.Show("Desea salir?", "Exit",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
-            {
                 e.Cancel = true;
-            }
         }
 
         /// <summary>
@@ -88,9 +86,7 @@ namespace MiCalculadora
         /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            if (cmbOperador.SelectedItem is null)
-                MessageBox.Show("debe seleccionar operador!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if(txtNumero1.Text == string.Empty || txtNumero2.Text == string.Empty)
+            if(txtNumero1.Text == string.Empty || txtNumero2.Text == string.Empty || cmbOperador.SelectedItem is null)
                 MessageBox.Show("Falta ingresar datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
